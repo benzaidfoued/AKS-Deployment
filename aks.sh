@@ -12,10 +12,10 @@ groupName='foued-aks'
 groupLocation='Your Region'
 group=$(az group create --name ${groupName} --location "${groupLocation}" --verbose)
 
-# Deploy Log Analytics Workspace
+# Deploy Log Analytics Workspace OR you can use an Exernal solution
 solution='logAnalytics'
-templatePath='../arm'
-templateFile="${templatePath}/${solution}/azureDeploy.json"
+templatePath='your template path'
+templateFile="${templatePath}/${solution}/template.json"
 
 timestamp=$(date -u +%FT%TZ | tr -dc '[:alnum:]\n\r')
 name="$(echo $group | jq .name -r)-${timestamp}"
